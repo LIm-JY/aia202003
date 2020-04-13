@@ -13,9 +13,9 @@ public class Ex4 {
 		int c = (128/4)*2;
 
 		if((a>b&&b>c) == true) {
-		System.out.println("참 입니다");
+		System.out.println("true");
 		}else {
-		System.out.println("거짓 입니다.");
+		System.out.println("false");
 		}
 		}
 	}

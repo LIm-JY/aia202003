@@ -10,13 +10,21 @@ public class Ex3 {
 		for(int i=3; i<15; i++) {
 		if(i%3==0){
 			sum += i;
-			if(sum > 3)
+		if(sum > 3) //결과 값에 3이 출력되기 때문에 sum >3보다 크단 것을 if문으로 작성
 			
 			
 			System.out.println(sum);
+			}
 		}
-	}
-	
-	
+	}	
 }
-}
+		
+		/* int a = 3+6;
+		 * int b = a+9;
+		 * int c = b+12;
+		 * 
+		 * System.out.println(a,b,c);
+		 */
+
+
+

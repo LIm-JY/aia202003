@@ -2,7 +2,8 @@ package ex;
 
 public class Ex2 {
 	public static void main(String[]args) {
-		int a=5, b=4;
+		//두 수의 차 구하기 - 절대값을 이용하는 방법
+		int a=5, b=6;
         int result;
 
         result=(a-b);
