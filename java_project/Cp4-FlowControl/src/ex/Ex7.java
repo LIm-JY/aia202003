@@ -7,16 +7,12 @@ public class Ex7 {
 		int n=1;
 		
 		while(n<=100) {
-		System.out.println(n);
-		n++;
+			System.out.println(n++);
 		}
-		
-		int n2 = 100;
 		do {		
-			System.out.println(n2);
-			n2--;
+			System.out.println(--n);
 		}
-		while(n2>0);
+		while(n>1);
 
 	}
 	
