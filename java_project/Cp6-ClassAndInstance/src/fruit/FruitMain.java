@@ -19,7 +19,7 @@ public class FruitMain {
 		
 		System.out.println("판매자 판매 정보 출력");
 		System.out.println("현재 사과의 개수: "+ seller.numOfApple);
-		System.out.println("판매금액: "+ seller.totalMoney);
+		System.out.println("판매금액: "+ seller.myMoney);
 		
 		System.out.println("-------------------");
 		System.out.println("구매자의 정보");
