@@ -8,9 +8,7 @@ public class Card {
 	String kind;
 	int number;
 	
-	Card(){
-		
-	}
+	Card(){}
 	
 	Card(String type, int num){
 		kind=type;

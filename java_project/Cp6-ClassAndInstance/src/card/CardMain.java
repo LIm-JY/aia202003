@@ -8,6 +8,7 @@ public class CardMain {
 //		c1.kind = "Heart";
 //		c1.number =7;
 		Card c1 = new Card("Heart",7);
+		
 		//인스턴스 생성
 		Card c2 = new Card();
 		c2.kind="spade";
