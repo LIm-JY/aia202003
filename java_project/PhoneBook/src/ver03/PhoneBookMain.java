@@ -42,6 +42,9 @@ public class PhoneBookMain {
 				//return;
 				System.exit(0);
 				break;
+			default:
+				System.out.println("잘못된 입력입니다!");
+				continue;
 				
 			}
 			
