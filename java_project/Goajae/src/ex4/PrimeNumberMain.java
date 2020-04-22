@@ -10,7 +10,7 @@ public class PrimeNumberMain {
 		  int n = 0;
 		  for (n=2;n<=100;n++) 
 		  {
-		  boolean pNum = number.PrimeNumber(n);
+		  boolean pNum = number.primeNumber(n);
 		  if (pNum==true) 
 		  {
 		  System.out.println(n+": 소수");

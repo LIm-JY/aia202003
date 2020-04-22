@@ -11,7 +11,7 @@ public class RadiusOfCircle {
 	public double circle2(double r) {
 		
 		
-		return Math.PI*(r*r);
+		return Math.PI*Math.pow(r,2);	//(r*r)을 Math.pow(,)로 표현가능
 	
 }
 }
