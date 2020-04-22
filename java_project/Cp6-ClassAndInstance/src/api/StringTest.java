@@ -15,7 +15,7 @@ public class StringTest {
 		
 		System.out.println("---------------------");
 		
-	java.lang.String str ="My nvme is JAVA";
+	java.lang.String str ="My name is JAVA";
 	
 	int strlength = str.length();
 	System.out.println(strlength);
