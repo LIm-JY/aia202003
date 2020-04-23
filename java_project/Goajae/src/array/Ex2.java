@@ -1,5 +1,7 @@
 package array;
 
+import java.util.Scanner;
+
 //문제 2.
 //다음 메서드는 int형 1차원 배열에 저장된 값을 두 번째 매개변수로 전달될 값의 크기만큼 전부 증가시킨다.
 //
@@ -15,20 +17,31 @@ package array;
 //위의 메서드가 제대로 동작하는지 확인하기 위한 main 메서드도 함께 정의해야 한다.
 
 public class Ex2 {
-
-public static void main(String[] args) {
-	int[][] arr2 = {{1,2,3},{4,5,6},{7,8,9},{10,11,12},{13,14,15}};
-     for(int i=0; i< arr2.length;i++){
-
-       for(int j=0; j<arr2[i].length; j++){
-
-          System.out.print(arr2[i][j]+"\t");
-
-       }
-
-       System.out.println();
-
-     }
+	
+	public static void addOneDArr(int[][] arr,int add) {
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				arr[i][j]+=add;
+				
+				System.out.print(arr[i][j]+"\t");
+				
+		}
 	}
-
 }
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		int [][] arr = new int [2][2];
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.println("값을 입력하세요: ");
+				arr[i][j] = sc.nextInt();
+				
+		}
+			Ex2.addOneDArr(arr, 1);
+		}
+			
+	}
+}
+	
+	
