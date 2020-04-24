@@ -47,7 +47,7 @@ public class PhoneInfor {	//데이터 저장 클래스
 	}
 	
 	
-	void showinfor () {
+	public void showinfor () {
 		System.out.println("이름: "+this.name);
 		System.out.println("전화번호: "+this.phoneNumber);
 		System.out.println("생일: "+this.birthday);
