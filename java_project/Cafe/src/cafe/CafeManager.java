@@ -146,7 +146,6 @@ public class CafeManager {
 
 			String selectNum = sc.nextLine();
 
-			sc.nextLine();
 
 			switch (selectNum) {
 			case "1":
@@ -162,8 +161,12 @@ public class CafeManager {
 			case "3":
 				deleteInfo();
 				break;
-			// 종료
+			//전체출력
 			case "4":
+				showAllData();
+				break;
+				// 이전단계로
+			case "5":
 				return;
 			default:
 				System.out.println("잘못된 입력입니다.");
@@ -295,8 +298,6 @@ public class CafeManager {
 
 			int selectNum = sc.nextInt();
 
-			sc.nextLine();
-
 			switch (selectNum) {
 			case 1:
 				// 배열정보 저장
@@ -311,8 +312,12 @@ public class CafeManager {
 			case 3:
 				deleteInfo2();
 				break;
-			// 종료
+			// 전체출력
 			case 4:
+				showAllData2();
+				break;
+			//이전단계로
+			case 5:
 				return;
 			default:
 				System.out.println("잘못된 입력입니다.");
@@ -458,9 +463,11 @@ public class CafeManager {
 			case 3:
 				deleteInfo3();
 				break;
-			// 종료
+			// 전체출력
 			case 4:
-				
+				showAllData3();
+				break;
+			case 5:
 				return;
 			default:
 				System.out.println("잘못된 입력입니다.");
@@ -588,13 +595,10 @@ public class CafeManager {
 			Menu.showMenu();
 
 			int selectNum = sc.nextInt();
-
-			sc.nextLine();
-
+			
 			switch (selectNum) {
 			case 1:
-				// 배열정보 저장
-
+			// 배열정보 저장
 				addInfo4();
 				break;
 			// 게시글 검색
@@ -605,8 +609,12 @@ public class CafeManager {
 			case 3:
 				deleteInfo4();
 				break;
-			// 종료
+			//전체출력
 			case 4:
+				showAllData4();
+				break;
+			// 이전단계로
+			case 5:
 
 				return;
 			default:

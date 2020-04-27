@@ -25,10 +25,11 @@ public class CafeMain {
 			case "3":
 				manager.showMenuInfo3();
 					break;
-				
 			case "4":
 				manager.showMenuInfo4();
 				break;
+			case "5":
+					System.exit(0);
 			default:
 				continue;
 				

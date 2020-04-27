@@ -216,8 +216,15 @@ public class PhoneBookManager {
 			PhoneInfor info = null;
 			
 			//저장된 인스턴스가: 기본, 대학, 회사, 동호회
-			if(books[index] instanceof PhoneInfor) {
-				info = new PhoneInfor(editName, phoneNum, addr, email);		
+			if(books[index] instanceof PhoneCafeInfor) {
+				System.out.println("동호회명을 입력해주세요.");
+				String cafeName = sc.nextLine();
+				System.out.println("닉네임을 입력해주세요");
+				String nickName = sc.nextLine();
+				
+				
+				info = new PhoneCafeInfor(editName, phoneNum, addr, email, cafeName, nickName);		
+			
 			}else if(books[index] instanceof PhoneUnviInfor) {
 				System.out.println("전공을 입력해주세요.");
 				String major = sc.nextLine();
@@ -238,14 +245,11 @@ public class PhoneBookManager {
 				
 				
 				info = new PhoneCompanyInfor(editName, phoneNum, addr, email, company, dept, job);
-			}else if(books[index] instanceof PhoneCafeInfor) {
 				
-				System.out.println("동호회명을 입력해주세요.");
-				String cafeName = sc.nextLine();
-				System.out.println("닉네임을 입력해주세요");
-				String nickName = sc.nextLine();
+			}else if(books[index] instanceof PhoneInfor) {
+			
 				
-				info = new PhoneCafeInfor(editName, phoneNum, addr, email, cafeName, nickName);
+				info = new PhoneInfor(editName, phoneNum, addr, email);
 					
 			}
 			//배열에 새로운 인스턴스를 저장
