@@ -37,12 +37,6 @@ public class PhoneBookManager { // 기능 클래스
 		sc = new Scanner(System.in);
 	}
 
-	void addInfor(PhoneInfor info) {
-
-		pBooks[cnt] = info;
-
-		cnt++;
-	}
 
 	// 저장 : 이름, 전화번호, 생년월일 정보를 대상으로 하는 저장
 	// 배열에 PhoneInfor 타입의 참조값을 저장
