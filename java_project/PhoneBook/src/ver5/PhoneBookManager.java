@@ -1,38 +1,41 @@
 package ver5;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import ver5.exception.BadNumExcption;
 
 
 //PhoneInfor타입의 배열로 친구들의 정보를
 //저장, 수정, 삭제, 검색, 출력
 public class PhoneBookManager {
-//	200428
-//	1. manager 클래스의 싱글톤 패턴 처리
-//
-//	1. 생성자에 접근제어지시자: private
-//	  -인스턴스 생성을 막는다.
-//	2. 공동으로 사용할 인스턴스 생성: static private
-//	3. 참조변수 반환 메서드: static public
+		//	200428
+	//	1. manager 클래스의 싱글톤 패턴 처리
+	//
+	//	1. 생성자에 접근제어지시자: private
+	//	  -인스턴스 생성을 막는다.
+	//	2. 공동으로 사용할 인스턴스 생성: static private
+	//	3. 참조변수 반환 메서드: static public
 	
 	
+	
+	
+	
+	
+//1. 배열 선언
+private PhoneInfor[]books;
+//배열에 저장된 요소의 개수
+private int numOfInfo;
 
-	
-	
-	
-	//1. 배열 선언
-	private PhoneInfor[]books;
-	//배열에 저장된 요소의 개수
-	private int numOfInfo;
-	
-	Scanner sc;
-	//생성자를 통해서 배열 생성, 요소의 개수 초기화
-	private PhoneBookManager(int num){
-		//배열의 생성
-		books = new PhoneInfor[num];
-		//요소 개수의 초기화
-		numOfInfo = 0;
-		//Scanner 초기화
-		sc = new Scanner(System.in);
+Scanner sc;
+//생성자를 통해서 배열 생성, 요소의 개수 초기화
+private PhoneBookManager(int num){
+	//배열의 생성
+	books = new PhoneInfor[num];
+	//요소 개수의 초기화
+	numOfInfo = 0;
+	//Scanner 초기화
+	sc = new Scanner(System.in);
 		
 	}
 	private static PhoneBookManager manager = new PhoneBookManager(100);
@@ -55,50 +58,107 @@ public class PhoneBookManager {
 	//2.2 사용자로 부터 받은 데이터로 인스턴스 생성
 	void createInfo() {
 		
-		System.out.println("1.일반 2.대학 3.회사 4.동호회");
+		PhoneInfor info =null;
+		String name = null; String phoneNum =null; String addr =null; String email = null;
 		
-		System.out.println("입력하고자하는 번호를 입력해주세요");
+	//		int select = sc.nextInt();
+	//		sc.nextLine();
 		
-//		int select = sc.nextInt();
-//		sc.nextLine();
-		
-		int select = Integer.parseInt(sc.nextLine());
-		
-		if(!(select>0 && select<5)) {
+		int select=0;
+	
+			while(true) {
+				System.out.println("1.대학 2.회사 3.동호회");
+				System.out.println("입력하고자하는 번호를 입력해주세요");
+			try {
+				
+			select = Integer.parseInt(sc.nextLine());
 			
+			//정상범위 1~3
+			if(!(select >=1&&select<=3)) {
+				BadNumExcption e = new BadNumExcption("잘못된 입력입니다");
+				
+					//강제적인 예외발생
+					throw e;
+				}
+			}
+			catch (InputMismatchException e) {
+				System.out.println("잘못 입력 되었습니다.\n 다시 입력해주시기 바랍니다.");
+				//manager.sc.nextLine();
+				continue;
+			}
+			catch (BadNumExcption e) {
+				System.out.println("메뉴범위를 벗어난 숫자 입력입니다.\n다시 확인 후 입력해주세요");
+			}
+			catch (Exception e) {
+				System.out.println("잘못 입력 되었습니다.\n 다시 입력해주시기 바랍니다.");
+				continue;
+				
+			}
+			//강제적으로 실행
+	//		finally {
+	//			manager.sc.nextLine();
+	//		}
+			break;
 		}
+			
+			while(true){
+	
+		
+	//		if(!(select>0 && select<5)) {
+	//			
+	//		}
 		
 		
 		//2.2.1 기본정보 수집: 이름, 번호, 주소, 이메일
+		
 		System.out.println("이름을 입력해주세요.");
-		String name = sc.nextLine();
+		name = sc.nextLine();
 		
 		System.out.println("번호을 입력해주세요.");
-		String phoneNum = sc.nextLine();
+		phoneNum = sc.nextLine();
 		
 		System.out.println("주소를 입력해주세요.");
-		String addr = sc.nextLine();
+		addr = sc.nextLine();
 		
 		System.out.println("이메일을 입력해주세요.");
-		String email = sc.nextLine();
+		email = sc.nextLine();
 		
-		PhoneInfor info =null;
+		
+		try {
+		
+		if(name.trim().isEmpty()||phoneNum.trim().isEmpty()
+		||addr.trim().isEmpty()||email.trim().isEmpty()) {
+			
+			StringEmptyException e = new StringEmptyException();
+			throw e;
+			
+		}
+		}catch (StringEmptyException e) {
+			System.out.println("기본정보는 공백없이 모두 입력해 주셔야 합니다.");
+			System.out.println("다시 입력해주세요.\n");
+			continue;
+		}
+		
+		break;
+	}
 		
 		switch(select) {
-		case 1:
-			//2.2.2 기본 클래스로 인스턴스생성
-			info = new PhoneInfor(name, phoneNum, addr, email);
-			break;
-		case 2:
+	//		case 1:
+	//			//2.2.2 기본 클래스로 인스턴스생성
+	//			info = new PhoneInfor(name, phoneNum, addr, email);
+	//			break;
+		case MenuInterface.UNIV:
 			System.out.println("전공(학과)를 입력해주세요");
 			String major = sc.nextLine();
 			System.out.println("학년 정보를 입력해주세요");
 			String grade = sc.nextLine();
 			
+			
+			
 			//2.2.3 대학 클래스로 인스턴스생성
 			info = new PhoneUnviInfor(name, phoneNum, addr, email, major, grade);
 			break;
-		case 3:
+		case MenuInterface.COMPANY:
 			System.out.println("회사의 이름을 입력해주세요");
 			String company = sc.nextLine();
 			System.out.println("부서의 이름을 입력해주세요");
@@ -106,29 +166,28 @@ public class PhoneBookManager {
 			System.out.println("직무(직급)정보를 입력해주세요");
 			String job = sc.nextLine();
 			
+			
 			//2.2.4 회사 클래스로 인스턴스생성
 			info = new PhoneCompanyInfor(name, phoneNum, addr, email, company, dept, job);
 			break;
-		case 4:
+		case MenuInterface.CAFE:
 			System.out.println("동호회 이름을 입력해주세요");
 			String cafeName = sc.nextLine();
 			System.out.println("닉네임을 입력해주세요");
 			String nickName = sc.nextLine();
 			
+			
 			//2.2.5 동호회 클래스로 인스턴스생성
 			info = new PhoneCafeInfor(name, phoneNum, addr, email, cafeName, nickName);
 			break;
-		default:
-			System.out.println("잘못 입력 하셨습니다.\n메뉴를 다시 선택 해주세요.");
-			return;
 			
 		}
+	
 				
 		//2.3 생성된 인스턴스를 배열에 저장
 		addInfo(info);
 	
 	}
-
 	//3. 배열의 데이터 출력
 	void showAllInfo() {
 		
@@ -200,7 +259,7 @@ public class PhoneBookManager {
 			for(int i=index; i<numOfInfo-1;i--) {
 				books[i]=books[i+1];
 			}
-//			삭제가 되었으므로 요소의 개수도 -1
+	//			삭제가 되었으므로 요소의 개수도 -1
 			numOfInfo--;
 		}
 			
@@ -263,16 +322,16 @@ public class PhoneBookManager {
 				
 				info = new PhoneCompanyInfor(editName, phoneNum, addr, email, company, dept, job);
 				
-			}else if(books[index] instanceof PhoneInfor) {
-			
-				
-				info = new PhoneInfor(editName, phoneNum, addr, email);
-					
-			}
+			}//else if(books[index] instanceof PhoneInfor) {
+	//			
+	//				
+	//				info = new PhoneInfor(editName, phoneNum, addr, email);
+	//					
+	//			}
 			//배열에 새로운 인스턴스를 저장
-			books[index] = info;
-			
+				books[index] = info;
+				
+			}
 		}
+		
 	}
-	
-}

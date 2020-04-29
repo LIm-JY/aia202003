@@ -16,7 +16,7 @@ public class PhoneCafeInfor extends PhoneInfor{
 	@Override
 	public void showAllInfo() {
 		// TODO Auto-generated method stub
-		super.showAllInfo();
+		showBasicInfo();
 		System.out.println("동호회 명: "+cafeName);
 		System.out.println("닉네임: "+nickName);
 	}

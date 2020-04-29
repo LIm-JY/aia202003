@@ -20,7 +20,7 @@ public class PhoneCompanyInfor extends PhoneInfor{
 	@Override
 	public void showAllInfo() {
 		// TODO Auto-generated method stub
-		super.showAllInfo();
+		showBasicInfo();
 		System.out.println("회사: "+company);
 		System.out.println("부서: "+dept);
 		System.out.println("직급: "+job);
