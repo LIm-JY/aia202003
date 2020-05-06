@@ -253,7 +253,7 @@ private PhoneBookManager(int num){
 		
 		if(index<0) {
 			System.out.println("삭제하고자 하는 이름의 정보가 존재하지 않습니다.");
-		}else {
+		}else { 
 			
 			//삭제 위치에서 왼쪽으로 시프트
 			for(int i=index; i<numOfInfo-1;i--) {
