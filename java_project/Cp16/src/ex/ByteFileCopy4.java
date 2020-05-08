@@ -11,7 +11,7 @@ import java.io.OutputStream;
 
 public class ByteFileCopy4 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 
 		InputStream in = null;
 		OutputStream out = null;

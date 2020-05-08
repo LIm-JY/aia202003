@@ -14,7 +14,7 @@ public class Circle implements Serializable{
 		this.rad=rad;
 	}
 	void showCircleInfo() {
-	System.out.println(xPos);
-	System.out.println(rad);
+	System.out.println("xPos"+xPos+", yPos"+yPos);
+	System.out.println("rad"+rad);
 	}
 }
