@@ -22,11 +22,11 @@ public class ByteFileCopy2 {
 
 			// 원본 파일의 데이터를 프로그램안으로 가져와야한다.
 			// => InputStream 인스턴스 생성
-			in = new FileInputStream("git.exe");
+			in = new FileInputStream("C:\\Users\\lgrns\\OneDrive\\문서\\GitHub\\aia202003\\java_project\\Cp16\\git.lnk");
 
 			// 새로운 파일을 생성
 			// => OutputStream 인스턴스 생성
-			out = new FileOutputStream("git-copy.exe");
+			out = new FileOutputStream("C:\\Users\\lgrns\\OneDrive\\문서\\GitHub\\aia202003\\java_project\\Cp16\\git-copy.lnk");
 
 			while (true) {
 

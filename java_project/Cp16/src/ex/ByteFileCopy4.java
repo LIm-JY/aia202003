@@ -25,11 +25,11 @@ public class ByteFileCopy4 {
 
 			// 원본 파일의 데이터를 프로그램안으로 가져와야한다.
 			// => InputStream 인스턴스 생성
-			in = new FileInputStream("git.exe");
+			in = new FileInputStream("git.lnk");
 
 			// 새로운 파일을 생성
 			// => OutputStream 인스턴스 생성
-			out = new FileOutputStream("git-copy3.exe");
+			out = new FileOutputStream("git-copy3.lnk");
 			
 			// 필터 스트림 생성
 			bin = new BufferedInputStream(in);
