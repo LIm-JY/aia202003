@@ -144,19 +144,27 @@ select bookname
 from book
 where price like 7000;
 --(3) 박지성의총구매액(박지성의고객번호는1번으로놓고작성)
---select saleprice 
---from orders
---where custid like 1;
+select *
+from orders;
+select sum(saleprice)
+from orders
+where custid=1;
 
 --(4) 박지성이구매한도서의수(박지성의고객번호는1번으로놓고작성)
---select *
---from orders
---where custid like 1;
+select *
+from orders;
+select count(*)
+from orders
+where custid= 1;
 
 
 --2 마당서점의운영자와경영자가요구하는다음질문에대해SQL 문을작성하시오.
 --(1) 마당서점도서의총개수
+select count(*)
+from book;
+
 --(2) 마당서점에도서를출고하는출판사의총개수
+select count(DISTINCT publisher) from book;
 
 --(3) 모든고객의이름, 주소
 select name, address

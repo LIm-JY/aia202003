@@ -1,5 +1,6 @@
 --16. SUBSTR 함수를 사용하여 사원들의 입사한 년도와 입사한 달만 출력하시오.
-
+--substr(원본,문자열,시작 인덱스, 개수)
+--substr('string',1,2) -> TR
 select  substr(hiredate,0,2)as "입사한 년도",substr(hiredate,4,2)as "입사한 달"
 from emp
 ;
@@ -16,8 +17,7 @@ where substr(hiredate,4,2)=04
 
 
 
---18. MOD 함수를 사용하여 사원번호가 짝수인 사람만 출력하시오.
-
+--18. MOD 함수를 사용하여 사원번호가 짝수인 사람만 출력하시오98
 select empno
 from emp
 where mod(empno,2) =0
@@ -126,7 +126,7 @@ group by deptno
 --별칭은 각 job, dno, 부서 10, 부서 20, 부서 30, 총액으로 지정하시오. ( hint. Decode, group by )
 
 select job, deptno as dno , decode ( deptno, 10, sum(sal) ) as "부서10",
-                            decode ( deptno, 20, sum(sal) ) as "부서20",
+                            decode ( deptno, 20, sum(sal) ) as "부서20",.
                             decode ( deptno, 30, sum(sal) ) as "부서30"
 
 ,sum(sal) as "총액"
