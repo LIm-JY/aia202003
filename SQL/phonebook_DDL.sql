@@ -100,6 +100,13 @@ select pbidx, pbname, pbnumber,pbcafename,pbcafenickname from phonebook where pb
 
 
 -----------------------------------------------------------------------------------
+--외래키 설정시 부모의 행이 삭제 될 때 설정 
+-- refrences phoneinfo_basic (idx) on delete 설정 옵션
+--no action: 모두삭제불가
+--cascade: 참조를 하고있는 자식테이블의 모든 행도 삭제
+--set null: 참조를 하고있는 자식테이블의 모든 행의 외래키 컬럼의 값을 null로 변경
+--set default :참조를 하고있는 자식테이블의 모든 행의 외래키 컬럼의 값을 기본값으로 변경
+
 create table phoneinfo_basic(
     idx number(4)CONSTRAINT phoneinfo_basic_idx_pk PRIMARY key,  --기본키
     fr_name varchar2(20)not null ,   --이름
@@ -171,12 +178,7 @@ insert into phoneinfo_com(
 idx, fr_c_company, fr_ref)
 values (3,'kkij',3)
 ;
---3. join
-insert into phoneinfo_basic
-(idx, fr_name,fr_phonenumber,fr_addr,fr_email,fr_regdate,fr_type)
-values (3,'laura','010-1344-8878', '로마', 'laura@gmail.com',sysdate ,'com')
 
-;
 
 select * from phoneinfo_basic;
 select * from phoneinfo_basic where idx in(select fr_ref from phoneinfo_com);
@@ -187,12 +189,114 @@ select * from phoneinfo_basic where idx in(select fr_ref from phoneinfo_com);
 --전체
 select * from phoneinfo_basic pb, phoneinfo_univ pu, phoneinfo_com pc 
 where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+);
+--view: pb_all_view
 --학교
 select * from phoneinfo_basic pb, phoneinfo_univ pu 
 where pb.idx=pu.fr_ref;
+--view: pb_univ_view
 --회사
 select * from phoneinfo_basic pb, phoneinfo_com pc 
 where pb.idx=pc.fr_ref;
+--view: pb_com_view
+
+
+
+
+rollback;
+--------------------------------------------------
+--수정을 위한 DML
+--------------------------------------------------
+--1. 회사 친구정보 수정
+update phoneinfo_com
+set fr_c_company = '벤츠'
+where fr_ref = (select idx from phoneinfo_basic where fr_name = 'laura');
+
+--2. 학교친구정보 수정
+--------------------------------------------------
+update phoneinfo_univ
+set fr_u_major='생명'
+where fr_ref = (select idx from phoneinfo_basic where fr_name = 'dan');
+
+
+--------------------------------------------------
+--삭제를 위한 DML
+--------------------------------------------------
+--1. 회사친구정보 삭제
+delete from phoneinfo_com where fr_c_company='벤츠';
+delete from phoneinfo_com where fr_ref=3;
+delete from phoneinfo_basic where idx=3;
+delete from phoneinfo_univ where fr_ref=3;
+
+
+--2. 학교친구정보 삭제
+--------------------------------------------------
+delete from phoneinfo_univ where fr_u_major='생명';
+delete from phoneinfo_com where fr_ref=2;
+delete from phoneinfo_basic where idx=2;
+delete from phoneinfo_univ where fr_ref=2;
+
+
+
+
+---------------------------------------------------------
+--view
+---------------------------------------------------------
+--목록출력
+--전체
+select * from phoneinfo_basic pb, phoneinfo_univ pu, phoneinfo_com pc 
+where pb.idx=pu.fr_ref(+) and pb.idx=pc.fr_ref(+);
+--view: pb_all_view
+create or replace view pb_all_view
+as
+select fr_name,fr_phonenumber,fr_addr,fr_email,fr_regdate,fr_type
+from phoneinfo_basic;
+desc pb_all_view;
+select* from pb_all_view;
+
+--학교
+select * from phoneinfo_basic pb, phoneinfo_univ pu 
+where pb.idx=pu.fr_ref;
+--view: pb_univ_view
+create or replace view pb_univ_view
+as
+select pb.fr_name, pb.fr_phonenumber,pb.fr_addr,pb.fr_type,pu.fr_u_major,pu.fr_u_year
+from phoneinfo_basic pb, phoneinfo_univ pu where pb.idx=pu.fr_ref;
+desc pb_univ_view;
+select* from pb_univ_view;
+
+--회사
+select * from phoneinfo_basic pb, phoneinfo_com pc 
+where pb.idx=pc.fr_ref;
+--view: pb_com_view
+create or replace view pb_com_view
+as
+select pb.fr_name, pb.fr_phonenumber,pb.fr_addr,pb.fr_type, pc.fr_c_company
+from phoneinfo_basic pb, phoneinfo_com pc where pb.idx=pc.fr_ref;
+desc pb_com_view;
+select* from pb_com_view;
+
+----------------------------------------------------
+--sequence
+----------------------------------------------------
+--1. basic 테이블 seq
+create SEQUENCE pb_basic_idx_seq
+start with 0
+minvalue 0
+;
+
+--2. com 테이블 seq
+create SEQUENCE pb_com_idx_seq
+start with 0
+minvalue 0
+;
+
+--3. univ 테이블 seq
+create SEQUENCE pb_univ_idx_seq
+start with 0
+minvalue 0
+;
+
+
 
 
 
