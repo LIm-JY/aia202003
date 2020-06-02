@@ -104,3 +104,10 @@ WHERE DEPTNO=
 
 select *from emp01;
 
+select * from user_tables ;
+
+SELECT * FROM user_views;
+
+desc emp01;
+
+
