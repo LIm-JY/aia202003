@@ -1,21 +1,26 @@
-package ex;
+package manager;
 
-import java.util.Date;
+import java.sql.Date;
 
+// VO : 읽기전용
+// DTO : 읽기, 쓰기
 public class Emp {
-
-	int empno;
-	String ename;
-	String job;
-	int mgr;
-	Date hiredate;
-	int sal;
-	int comm;
-	int deptno;
 	
+	private int empno;
+	private String ename;
+	private String job;
+	private int mgr;
+	private Date hiredate;
+	private int sal;
+	private int comm;
+	private int deptno;
+	
+	
+	
+	public Emp() {
+	}
 	
 	public Emp(int empno, String ename, String job, int mgr, Date hiredate, int sal, int comm, int deptno) {
-		super();
 		this.empno = empno;
 		this.ename = ename;
 		this.job = job;
@@ -24,10 +29,6 @@ public class Emp {
 		this.sal = sal;
 		this.comm = comm;
 		this.deptno = deptno;
-	}
-	
-	public Emp() {
-		
 	}
 	public int getEmpno() {
 		return empno;
@@ -53,10 +54,6 @@ public class Emp {
 	public int getDeptno() {
 		return deptno;
 	}
-	
-	
-	
-	
 	public void setEmpno(int empno) {
 		this.empno = empno;
 	}
@@ -83,4 +80,9 @@ public class Emp {
 	}
 	
 	
+	
+	
+	
+	
+
 }

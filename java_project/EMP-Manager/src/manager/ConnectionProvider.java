@@ -1,13 +1,12 @@
-package ex;
+package manager;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Collection;
 
 public class ConnectionProvider {
 
-	public static Connection getConnection() {
+	public static Connection getConnection() throws SQLException {
 		// 2. 데이터베이스 연결
 		Connection conn = null;
 
@@ -18,13 +17,10 @@ public class ConnectionProvider {
 		String pw = "tiger";
 
 		// Connection 객체 생성
-		try {
-			conn = DriverManager.getConnection(url, user, pw);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
+		conn = DriverManager.getConnection(url, user, pw);
+
 		return conn;
 	}
+
 }
