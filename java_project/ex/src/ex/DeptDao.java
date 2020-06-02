@@ -268,16 +268,10 @@ public class DeptDao {
 		// 공백 입력에 대한 예외처리가 있어야 하나 이번 버전에서는 모두 잘 입력된것으로 처리합니다.
 
 		try {
-			// 0. 드라이버 LIB 추가
-			// 1. 데이터베이스 드라이버 로드
-			// Class.forName(드라이버 클래스 전체이름)
-			// Oracle : oracle.jdbc.driver.OracleDriver
-			//Class.forName("oracle.jdbc.driver.OracleDriver");
-
+			
 			// 2. 데이터베이스 연결
 
-			// String url = "jdbc:oracle:thin:@주소:포트:데이터베이스이름";
-			// 주소 : localhost or 127.0.0.1
+			
 			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 			String user = "scott";
 			String pw = "tiger";
@@ -296,12 +290,12 @@ public class DeptDao {
 			// Oracle
 			// select * from dept where dname like '%'||?||'%'
 
-			String sql = "select * from dept  where dname like '%'||?||'%' or  loc like '%'||?||'%'";
-			// String sql = "select * from dept where dname=?";
+			//String sql = "select * from dept  where dname like '%'||?||'%' or  loc like '%'||?||'%'";
+			String sql = "select * from dept where dname=?";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, searchName);
-			pstmt.setString(2, searchName);
+			pstmt.setString(1, dname);
+			pstmt.setString(2, dname);
 			rs = pstmt.executeQuery();
 
 			int resultCnt = 0;
