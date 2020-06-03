@@ -6,7 +6,7 @@ public class PhoneInfor {
 	private String pbnumber;
 	private String pbaddr;
 	private String pbmail;
-	
+	private String pbtype;
 	public PhoneInfor() {
 		
 	}
@@ -48,6 +48,13 @@ public class PhoneInfor {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString();
+	}
+	
+	public String getPbtype() {
+		return pbtype;
+	}
+	public void setPbtype(String pbtype) {
+		this.pbtype = pbtype;
 	}
 	
 	
