@@ -1,4 +1,4 @@
-package ver7;
+package ex7;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
