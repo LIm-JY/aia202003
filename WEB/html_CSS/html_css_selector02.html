@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS선택자 Selector</title>
+    <meta charset="utf-8">
+    <link herf="../css/default.css" type="text/css" rel="stylesheet">
+    
+    
+    
+
+    <style>
+    
+    /*
+        CSS
+        
+        선택자{
+            스타일명: 속성 값;
+        ....
+        }
+    */
+        *{
+            color: gray;
+            
+        }
+        h1{
+            background-color: black;
+        }
+        
+        p{
+            font-size:32px;
+            font-style: italic
+        }
+        h1, p{
+            border:3px solid blue;
+            margin:0;
+            padding: 0;
+            
+        }
+    
+        /*
+        #아이디{
+        
+        }
+        */
+        #header{
+            width: 300px;
+            margin: 0 auto;
+            background-color: red;
+        }
+        #aside{
+            width: 400px;
+            background-color: blue;
+            margin: 10px auto;
+        }
+        #content{
+            width: 500px;
+            background-color: green;
+            margin: 0 auto;
+        }
+        li{
+            color: black;
+        }
+        .font_color{
+            color: greenyellow;
+        }
+        .font_bold{
+            font-weight: lighter;
+        }
+        li.font_size{
+            font-size: 150%;
+        }
+        div.font_size{
+            font-size: 120%;
+        }
+        
+        
+        
+        
+        
+    
+    </style>
+    </head>
+    <body>
+        
+        <ul>
+        <li class ="font_color font_size">키위</li>
+        <li>바나나</li>
+        <li class ="font_color font_bold font_size">오렌지</li>
+        <li>감</li>
+        </ul>
+        
+        
+        
+        
+        
+        <hr>
+        
+        
+        <div id="header" class="font_size">headerheaderheader
+            headerheader
+            headerheaderheaderheader
+            headerheaderheader</div>
+        <div id="aside">aside</div>
+        <div id="content">content</div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <hr>
+    
+        <h1>윤미향 "나 죽는 모습 찍으려하나" 530호 앞 취재진에 폭발</h1>
+        
+        <p>윤미향 더불어민주당 의원이 8일 "내가 죽는 모습을 찍으려고 기다리는 것이냐"라며 기자들에게 불만을 터뜨렸다.</p>
+
+<p>한편, 손 소장이 스스로 목숨을 끊은 지 이틀째인 이날 딴지일보에는 위안부 피해자인 이용수 할머니에 대한 비난 글이 쇄도하고 있다.</p>
+
+<p>딴지일보 커뮤니티 자유게시판에는 지난 7일과 8일 '이용수씨는 비난받아 마땅합니다', '이용수 할머니 갑질에 넌덜머리가 납니다' 등의 글이 게시됐다.</p>
+    
+    
+    
+    </body>
+ 
+</html>
