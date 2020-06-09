@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS선택자 Selector</title>
+    <meta charset="utf-8">
+        
+
+    <style>
+        
+       /* 속성선택자
+        선택자[속성이름] : 특정 속성과 값을 가지는 태그를 선택할 때 사용  속성과 같은 [ ] 괄호를 이용
+        
+        
+   */
+        
+        input{
+            height: 30px
+            
+        }
+        
+        input[type] {    
+/*            border: 1px solid blue;*/
+        }
+        input[type="text"]{
+/*            background-color: aqua;*/
+        }
+        input[type="password"]{
+            background-color: aquamarine;
+        }
+        img[alt]{
+/*            width: 100px;*/
+        }
+        img[src$=jpg]{
+            border: 3px solid red;
+        }
+        img[src$=jfif]{
+            border: 3px solid green;
+        }
+
+  /*      후손선택 :선택의 범위를 제한
+    
+        선택자 범위안의 선택자
+        div h1{
+            
+        }
+        */
+        
+        
+        #header h1, #header h2{
+            color: red;
+        }
+        
+        form input{
+/*            width: 100%;*/
+        }
+        
+        
+      /*  자손선택자
+        선택자>선택자*/
+        
+        body>tr>td{
+            color: yellowgreen;
+            
+        }
+        table>tbody>tr>td{
+            color:red;
+        }
+        
+        
+        
+        
+        #myform input{
+            background-color: white;
+        }
+        #myform input:disabled{
+            background-color: darkslateblue;
+        }
+        #myform input:enabled{
+            background-color: azure;
+        }
+        #myform input[type =checkbox]{
+            width: 30px;
+            height: 30px;
+        }
+        #myform input[type =checkbox]:checked{
+         /*   width: 50px;
+            height: 50px;*/
+        }
+        
+        #viewmenu+div{
+            display:none;
+            
+        }
+        #viewmenu:checked+div{
+            display:block;
+            
+        }
+        
+        #nav>li{
+            list-style: none;
+            float: left;
+            width: 50px;
+            height: 50px;
+        } 
+        #nav>li:nth-child(2n+1){
+            background-color: aquamarine;
+        } #nav>li:nth-child(2n){
+            background-color: aqua;
+        } 
+        #nav>li:first-child{
+            border:2px solid gray;
+            border-radius: 10px 0px 0px 10px;
+        } 
+        #nav>li:last-child{
+            border: 2px solid gray;
+            border-radius: 0px 10px 10px 0px;
+        }
+        p::first-letter{
+            font-size:3em;
+        }
+        p::first-line{
+            color: aqua;
+        }
+        p::selection{
+            background: black; 
+            color: red;
+        }
+        
+        a:link{
+            color: red;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        a:active{
+            
+        }
+    
+    </style>
+    </head>
+    
+ 
+    <body>
+        
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Aenean ac erat et massa vehicula laoreet consequat et sem.
+        <br> Aenean ac erat et massa vehicula laoreet consequat et sem.</p>
+        
+        <hr>
+        
+        <ul id="nav">
+            
+        <li><a>home</a></li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        
+        </ul>
+        <br>
+        <br>
+        <br>
+        
+        
+        
+        
+        <hr>
+        
+        <form id="myform">
+            
+            <div>
+            약관동의 <input type="checkbox" checked  id="viewmenu">
+            </div>
+            
+            <div>
+            약관보기 <input type="checkbox" checked  id="viewmenu">
+                <div >
+                    <h4>이용약관</h4>
+                    <p>
+                    문제시 바로 강퇴됩니다.
+                    </p>
+                </div>
+            </div>
+            <div>
+            마케팅동의 <input type="checkbox">
+            </div>
+            
+            <div>
+            <input type="text">
+            </div>
+            <div>
+            <input type="text" disabled>
+            </div>
+            <div>
+            <input type="text" readonly>
+            </div>
+            <div>
+            <input type="text" required>
+            </div>
+            
+            <input type="submit" name="제출">
+            
+        </form>
+            
+        
+        
+        <hr>
+        
+        
+        <h3>header-3</h3>
+        <h4>header-4</h4>
+        <h4>header-4</h4>
+        <h4>header-4</h4>
+        <h4>header-4</h4>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <table border="1">
+            
+            <tr>
+                <td>아이디</td>
+                <td><input></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input></td>
+            </tr>
+        
+        
+        
+        </table>
+        
+        
+        
+        
+        
+        
+        
+        
+            
+        <div id="header">
+            
+            <h1 class="title">Title</h1>
+            
+            <div id="nav">
+            
+            <h1> Navigation</h1>
+            
+                
+            </div>
+            <h1>etc</h1>
+            
+        </div>
+        
+        <div id="section">
+            
+            <h1 class="title">Title</h1>
+            <p>안녕하세요</p>
+            
+        </div>
+        
+        
+        <hr>
+        
+        <form>
+            <input>
+            <br>
+            <input type="text">
+            <br>
+            <input type="password">
+        </form>
+        
+        
+        
+            <img src="../images/bemo.jpg">
+            <img src="../images/bemo.jpg" alt="비모">
+            <img src="../images/jake.jpg" alt="제이크">
+            <img src="../images/finn.jfif">
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    </body>
+ 
+</html>
