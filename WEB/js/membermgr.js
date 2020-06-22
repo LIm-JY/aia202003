@@ -99,6 +99,7 @@ function editSet(idx){
 
 // 사용자 입력 데이터를 배열 요소 객체의 속성 값을 변경
 function editMember() {
+    
     // 사용자 입력 데이터 받기, document로 케스팅 후 value 속성 사용
     var id = document.getElementById('eid').value;
     var name = document.getElementById('ename').value;
