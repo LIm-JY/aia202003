@@ -1,250 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <title>Document</title>
 
 
-    <meta charset="utf-8">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        body {
+            height: 1080px;
+            width: 600px;
 
         }
 
-        div.border {
-            /* border: 1px solid #AAAAAA; */
-        }
-
-        #header {
-            /*표현 영역의 사이즈 설정*/
-
-            height: 100px;
-
-            /*배경색*/
-            /* background-color: yellowgreen; */
-
-            /*영역의 수평방향의 중앙 위치*/
-            margin: 0 auto;
-
-            /*텍스트의 정열 : 수평/수직 중앙*/
-            line-height: 100px;
-
-
-            /*텍스트 설정*/
+        #orderlist {
             font-size: 2em;
-            color: black;
-            font-weight: bold;
+            color: red;
+            height: 50px;
+            width: 100px;
         }
 
-        #nav {
-            /*표현 영역의 사이즈 설정*/
-
-
-            height: 70px;
-
-
-
-            /*배경색*/
-            background-color: gold;
-
-            /*영역의 수평방향의 중앙 위치*/
-            margin: 0 auto;
-
-            /*텍스트의 정열 : 수평/수직 중앙*/
-            text-align: center;
-            line-height: 32px;
-
-
-            /*텍스트 설정*/
-            font-size: 2em;
-            color: aliceblue;
-            font-weight: bold;
-
-            /* position: relative;
-            margin-right: 85px;
-            padding: 0 10px;
-            color: #292929;
-            font-size: 20px;
-            line-height: 140px;
-            font-weight: 600; */
-
-        }
-
-
-
-        #wrap {
-
-            /*표현 영역의 사이즈*/
-            width: 1500;
-
-            /*영역의 수평방향의 중앙 위치*/
-            margin: 0 auto;
-
-            /*flaot 속성의 범위를 현재 영역으로 한정*/
-            overflow: hidden;
-        }
-
-        #aside {
-
-            /*표현 영역의 사이즈 설정*/
-            width: 319px;
-            height: 700px;
-
-            /*배경색*/
-            background-color: whitesmoke;
-
-            /*영역의 수평방향의 중앙 위치*/
-            /*margin:0 auto;*/
-
-            /*텍스트의 정열 : 수평/수직 중앙*/
-            text-align: center;
-            line-height: 300px;
-
-            /*텍스트 설정*/
-            font-size: 2em;
-            color: black;
-            font-weight: bold;
-
-
-            /*수평방향 정렬*/
-            float: right;
-
-        }
-
-        #content {
-
-            /*표현 영역의 사이즈 설정*/
-            width: 1200px;
-            height: 700px;
-
-            /*배경색*/
-            background-color: gold;
-
-
-
-            /*텍스트의 정열 : 수평/수직 중앙*/
-            text-align: center;
-            line-height: 300px;
-
-            /*텍스트 설정*/
-            font-size: 2em;
-            color: aliceblue;
-            font-weight: bold;
-
-            float: left;
-        }
-
-        #footer {
-
-            /*표현 영역의 사이즈 설정*/
-            height: 800px;
-
-            /*배경색*/
-            background-color: #FF0000;
-
-            /*영역의 수평방향의 중앙 위치*/
-            margin: 0 auto;
-
-            /*텍스트의 정열 : 수평/수직 중앙*/
-            text-align: center;
-            line-height: 100px;
-
-            /*텍스트 설정*/
-            font-size: 2em;
-            color: aliceblue;
-            font-weight: bold;
-
-            /*float 속성 해제*/
-            /*clear: both;*/
-        }
-
-        #select>li {
-
-            list-style: none;
-            float: left;
-            width: 200px;
-            padding: 0 auto;
-        }
-
-        #btn>a {
-            display: block;
-            /*border:1px solid;*/
-
-            /*텍스트 설정*/
-            font-weight: bold;
-        }
-
-        #btn>a:link {
-            color: white;
-        }
-
-        #btn>a:visited {
-            color: white;
-        }
-
-        #btn>a:hover {
-            color: white;
-        }
-
-        
-        
-    </style>
-    <script>
-
-        // $(document).ready(function(){
-
-                        
-
+        #cont {
+            height: 300px;
+            width: 300px;
             
-           
+            background-color: green;
 
-        // });
-        
-        
+        }
+        #sele{
+            font-size: 1.5em;
+        }
+        #menuplus{
+            
+        }
+    </style>
 
-    </script>
+<script>
+
+</script>
 </head>
 
 <body>
 
-    <div id="header" class="border">
-        자바머거
+
+    <div>
+        <header id="orderlist">
+            <h3>결제</h3>
     </div>
-    <div id="nav" class="border">
-
-        <ul id="select">
-            <li id="btn"><a href="#">buger</a> </li>
-            <li>buger</li>
-            <li>buger</li>
-        </ul>
-
-
-
+    </header>
+    
+    <div id="cont">
+        <h3>주문내역을 확인해주세요</h3>
+        <hr>
+        <table border="1"> 
+                
+                    <tr id="sele">
+                        <td></td>
+                        <td>품목명</td>
+                        <td>수량</td>
+                        <td>조회</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>품목명</td>
+                        <td>수량</td>
+                        <td>조회</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>품목명</td>
+                        <td>수량</td>
+                        <td>조회</td>
+                    </tr>
+                
+        </table>
     </div>
-    <div id="wrap">
+    
+    <div id="menuplus"><input type="button" value="메뉴추가"></div>
+    <div id="cancle"><input type="button" value="전체취소"></div>
 
-
-        <div id="content" class="border">
-            <td><img src="https://www.mcdonalds.co.kr/upload/product/pcList/1591773625038.png" alt="트리플 치즈버거"></td>
-            <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583727841393.png" alt="빅맥®">
-            <img src="https://www.mcdonalds.co.kr/upload/product/pcList/1583728339451.png" alt="맥스파이시® 상하이 버거">
-        </div>
-        <div id="aside" class="border">aside</div>
-    </div>
-    <div id="footer" class="border">footer</div>
-
-
-
-
-
-
-
-
-
-
-
-
+        
+        <table>
+            <td>총주문수량: +allcount</td>
+            <td>총주문금액: +allmoney</td>
+        </table>
 
 
 </body>
