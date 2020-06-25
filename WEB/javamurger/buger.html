@@ -4,91 +4,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-
     <title>Document</title>
 
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 
     <style>
         body {
-            height: 1080px;
-            width: 600px;
-
+            width: 1080px;
+            height: 800px;
+            margin: 50px 200px;
         }
 
-        #orderlist {
-            font-size: 2em;
-            color: red;
+        nav {
+            padding-right: 2px;
+            padding-left: 2px;
             height: 50px;
-            width: 100px;
-        }
-
-        #cont {
-            height: 300px;
-            width: 300px;
-            
-            background-color: green;
+            display: block;
+            border-top: 1px solid #CCCCEE;
 
         }
-        #sele{
+
+        button {
+            width: 200px;
+            height: 85px;
+            border: none;
+            background-color: white;
+            float: left;
             font-size: 1.5em;
+
+            outline: none;
+
         }
-        #menuplus{
-            
+
+        aside {
+            position: absolute;
+            left: 1300px;
+            width: 500px;
+            top: 200px;
+            border: 1px solid #CCCCEE;
+        }
+
+        .hamimg,
+        .drinkimg,
+        .sideimg,
+        .setimg {
+            margin: 20px 20px 30px 20px;
+            width: 200px;
+            height: 150px;
+            border: 1px solid #CCCCEE;
+
+
+        }
+
+
+        #list {
+            width: 250px;
+            height: 300px;
+            float: left;
+        }
+
+        #burger,
+        #drink,
+        #side,
+        #set {
+            display: none;
         }
     </style>
 
-<script>
+    <script>
+        $(document).ready(function () {
 
-</script>
+            var burger = [{
+                img: '<img class="hamimg" src="../HTML_Team_Project/HTML Project images/Hamberger/1955.png">',
+                name: '1955',
+                price: 4500,
+                count: 0
+            },
+            {
+                img: '<img class="hamimg" src="../HTML_Team_Project/HTML Project images/Hamberger/모짜렐라.png">',
+                name: '모짜렐라',
+                price: 5500,
+                count: 0
+            },
+            {
+                img: '<img class="hamimg" src="../HTML_Team_Project/HTML Project images/Hamberger/빅맥.png">',
+                name: '빅맥',
+                price: 5800,
+                count: 0
+            },
+            {
+                img: '<img class="hamimg" src="../HTML_Team_Project/HTML Project images/Hamberger/맥스파이시.png">',
+                name: '스파이시',
+                price: 4800,
+                count: 0
+            }
+
+
+
+
+            ];
+            var drink = [{
+                img: '<img class="drinkimg" src="../HTML_Team_Project/HTML Project images/Drink/딸기쉐이크.png">',
+                name: '딸기쉐이크',
+                price: 2800,
+                count: 0
+            },
+            {
+                img: '<img class="drinkimg" src="../HTML_Team_Project/HTML Project images/Drink/아메리카노.png">',
+                name: '아메리카노',
+                price: 2000,
+                count: 0
+            },
+            {
+                img: '<img class="drinkimg" src="../HTML_Team_Project/HTML Project images/Drink/카페라떼.png">',
+                name: '카페라떼',
+                price: 2500,
+                count: 0
+            },
+            {
+                img: '<img class="drinkimg" src="../HTML_Team_Project/HTML Project images/Drink/콜라.png">',
+                name: '콜라',
+                price: 1500,
+                count: 0
+            }
+            ];
+
+            var side = [{
+                img: '<img class="sideimg" src="../HTML_Team_Project/HTML Project images/SideDish/애플파이.png">',
+                name: '애플파이',
+                price: 1500,
+                count: 0
+            },
+            {
+                img: '<img class="sideimg" src="../HTML_Team_Project/HTML Project images/SideDish/치즈스틱.png">',
+                name: '치즈스틱',
+                price: 1800,
+                count: 0
+            },
+            {
+                img: '<img class="sideimg" src="../HTML_Team_Project/HTML Project images/SideDish/후렌치후라이.png">',
+                name: '후렌치후라이',
+                price: 2000,
+                count: 0
+            },
+            {
+                img: '<img class="sideimg" src="../HTML_Team_Project/HTML Project images/SideDish/후렌치후라이.png">',
+                name: '맛있는거',
+                price: 2000,
+                count: 0
+            }
+            ];
+
+            var set = [{
+                img: '<img class="setimg" src="../HTML_Team_Project/HTML Project images/SetMenu/1955세트.png">',
+                name: '1995세트',
+                price: 5500,
+                count: 0
+            },
+            {
+                img: '<img class="setimg" src="../HTML_Team_Project/HTML Project images/SetMenu/모짜렐라세트.png">',
+                name: '모짜렐라세트',
+                price: 6500,
+                count: 0
+            },
+            {
+                img: '<img class="setimg" src="../HTML_Team_Project/HTML Project images/SetMenu/빅맥세트.png">',
+                name: '빅맥세트',
+                price: 6800,
+                count: 0
+            },
+            {
+                img: '<img class="setimg" src="../HTML_Team_Project/HTML Project images/SetMenu/상하이세트.png">',
+                name: '상하이세트',
+                price: 5800,
+                count: 0
+            }
+            ];
+
+            //생성된 배열을 .each를 통해 div에 넣어줌
+            $.each(burger, function (index, item) {
+
+                var burger = '';
+
+                burger += '<div id=list>' + this.img + '<p>' + this.name + '</p><p>' + this.price +
+                    '원</p></div>';
+
+                $('#burger').html($('#burger').html() + burger);
+
+            });
+
+            $.each(drink, function (index, item) {
+
+                var drink = '';
+
+                drink += '<div id=list>' + this.img + '<p>' + this.name + '</p><p>' + this.price +
+                    '원</p></div>';
+
+                $('#drink').html($('#drink').html() + drink);
+
+            });
+
+            $.each(side, function (index, item) {
+
+                var side = '';
+
+                side += '<div id=list>' + this.img + '<p>' + this.name + '</p><p>' + this.price +
+                    '원</p></div>';
+
+                $('#side').html($('#side').html() + side);
+
+            });
+
+            // $.each(set, function (index, item) {
+
+            //     var set = '';
+
+            //     set += '<div id=list>' + this.img + '<p>' + this.name + '</p><p>' + this.price +
+            //         '원</p></div>';
+
+            //     $('#set').html($('#set').html() + set);
+
+            // });
+
+
+            // 전에 열렸던 메뉴를 확인하기 위한 변수
+            var toggle = $('#burger');
+
+
+            // button 클릭 시 메뉴가 열리는 메서드
+            $('#burgerbtn').click(function () {
+
+
+                // 전에 열렸던 메뉴가 있는지 확인 후 닫아주는 기능
+                if (toggle.is(':visible')) {
+                    toggle.fadeOut();
+                    $('#drink').css('background', 'white');
+                    $('#side').css('background', 'white');
+                    $('#set').css('background', 'white');
+                }
+
+
+                // 새로 선택된 메뉴창 확인을 위한 변수
+                var scroll = $('#burger');
+
+                // 메뉴창 클릭 시 열려있는지 확인 후 열거나 닫는 기능
+                if (scroll.is(':visible')) {
+                    scroll.slideUp();
+                    $(this).css('background', 'white')
+                } else {
+                    scroll.fadeIn();
+                    $(this).css('background', '#FF4E50')
+                }
+
+                // 열린 메뉴창 값을 반환
+                toggle = $('#burger');
+                return toggle;
+            });
+
+
+
+            $('#sidebtn').click(function () {
+
+
+                // 전에 열렸던 메뉴가 있는지 확인 후 닫아주는 기능
+                if (toggle.is(':visible')) {
+                    toggle.fadeOut();
+                    $('#drink').css('background', 'white');
+                    $('#burger').css('background', 'white');
+                    $('#set').css('background', 'white');
+                }
+
+
+                // 새로 선택된 메뉴창 확인을 위한 변수
+                var scroll = $('#side');
+
+                // 메뉴창 클릭 시 열려있는지 확인 후 열거나 닫는 기능
+                if (scroll.is(':visible')) {
+                    scroll.slideUp();
+                    $(this).css('background', 'white')
+                } else {
+                    scroll.fadeIn();
+                    $(this).css('background', '#FF4E50')
+                }
+
+                // 열린 메뉴창 값을 반환
+                toggle = $('#side');
+                return toggle;
+            });
+
+
+            $('drinkbtn').click(function () {
+
+                if(toggle.is(':visible')){
+                    toggle.fadeOut();
+                    $('#side').css('background', 'white');
+                    $('#burger').css('background', 'white');
+                    $('#set').css('background', 'white');
+                }
+
+                var scroll = $('#drink');
+                if(scroll.is(':visible')){
+                    scroll.slideUp();
+                    $(this).css('background', 'white')
+                } else {
+                    scroll.fadeIn();
+                    $(this).css('background', '#FF4E50')
+                }
+
+                toggle = $('#drink');
+                return toggle;
+            });
+
+
+        });
+
+    </script>
+
+
+
 </head>
 
 <body>
-
-
-    <div>
-        <header id="orderlist">
-            <h3>결제</h3>
-    </div>
+    <header>
+        <h1>자바머거</h1>
     </header>
-    
-    <div id="cont">
-        <h3>주문내역을 확인해주세요</h3>
-        <hr>
-        <table border="1"> 
-                
-                    <tr id="sele">
-                        <td></td>
-                        <td>품목명</td>
-                        <td>수량</td>
-                        <td>조회</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>품목명</td>
-                        <td>수량</td>
-                        <td>조회</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>품목명</td>
-                        <td>수량</td>
-                        <td>조회</td>
-                    </tr>
-                
-        </table>
-    </div>
-    
-    <div id="menuplus"><input type="button" value="메뉴추가"></div>
-    <div id="cancle"><input type="button" value="전체취소"></div>
 
-        
-        <table>
-            <td>총주문수량: +allcount</td>
-            <td>총주문금액: +allmoney</td>
-        </table>
+    <contents>
+
+        <nav class="nav">
+            <div class="navWarp">
+                <Button id="burgerbtn">단품</Button>
+
+                <Button id="sidebtn">사이드</Button>
+
+                <Button id="setbtn">세트</Button>
+
+                <Button id="drinkbtn">음료</Button>
+
+            </div>
+
+        </nav>
+        <br><br><br>
+
+
+
+        <div id="burger"></div>
+        <div id="drink"></div>
+        <div id="side"></div>
+        <div id="set"></div>
+
+
+
+
+    </contents>
+
+
+
 
 
 </body>
+<aside>
+    <div>
+        <h3>주문 리스트</h3>
+    </div>
+    <div id="cart">
+
+    </div>
+    <div id="orderCancle"><input type="reset" id="reset" value="모두 취소"></div>
+    <div id="orderComple"><input type="submit" value="선택 완료"></div>
+
+
+</aside>
+<footer>
+
+</footer>
 
 </html>
