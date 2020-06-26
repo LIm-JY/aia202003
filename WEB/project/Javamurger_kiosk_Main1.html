@@ -54,70 +54,70 @@
             {
                 img: 'HTML Project images/Drink/카페라떼.png',
                 name: '카페라떼',
-                price: 2000,
+                price: 2500,
                 type: 'drink'
 
             },
             {
                 img: 'HTML Project images/Drink/콜라.png',
                 name: '콜라',
-                price: 1000,
+                price: 1500,
                 type: 'drink'
 
             },
             {
                 img: 'HTML Project images/SideDish/애플파이.png',
                 name: '애플파이',
-                price: 1500,
+                price: 3000,
                 type: 'sideDish'
 
             },
             {
                 img: 'HTML Project images/SideDish/치즈스틱.png',
                 name: '치즈스틱',
-                price: 1000,
+                price: 2000,
                 type: 'sideDish'
 
             },
             {
                 img: 'HTML Project images/SideDish/후렌치후라이.png',
                 name: '후렌치후라이',
-                price: 2000,
+                price: 2500,
                 type: 'sideDish'
 
             },
             {
-                img: 'HTML Project images/SideDish/스낵랩.png',
-                name: '치킨 스낵랩',
-                price: 2500,
+                img: 'HTML Project images/SideDish/치즈스틱.png',
+                name: '치즈스틱',
+                price: 1500,
                 type: 'sideDish'
 
             },
             {
                 img: 'HTML Project images/SetMenu/1955세트.png',
                 name: '1955세트',
-                price: 8000,
+                price: 3000,
                 type: 'setMenu'
 
             },
             {
                 img: 'HTML Project images/SetMenu/모짜렐라세트.png',
                 name: '모짜렐라세트',
-                price: 7500,
+                price: 2000,
                 type: 'setMenu'
 
             },
             {
                 img: 'HTML Project images/SetMenu/빅맥세트.png',
                 name: '빅맥세트',
-                price: 8000,
+                price: 2500,
                 type: 'setMenu'
 
             },
             {
                 img: 'HTML Project images/SetMenu/상하이세트.png',
                 name: '상하이세트',
-                price: 7000,
+                price: 1500,
                 type: 'setMenu'
 
             }
@@ -233,13 +233,45 @@
                     }
                 }
 
-                display();
 
 
+
+
+
+                var html = '';
+                html += '<div class="list">';
+                for (var i = 0; i < orderList.length; i++) {
+                    html += '<div>'
+                    html += '<img src="' + Item[orderList[i].idx].img + '" id="orderImg">';
+                    html += '<span>' + orderList[i].name + '</span>';
+                    html += '<span> 가격 : ' + orderList[i].price + '</span>';
+                    html += '<button class="' + orderList[i].idx + '"id="addplz">+</button>';
+                    html += '<span> 수량 : ' + orderList[i].cnt + '</span>';
+                    html += '<input type="button" class="' + orderList[i].idx + '" id="minus">-';
+
+                    html += '</div>'
+                }
+                html += '</div>';
+
+                var totalHtml = '<span id="total"></span>';
+
+                $('#cart').html(html);
+
+                var total = 0;
+                for (var i = 0; i < orderList.length; i++) {
+                    total += orderList[i].price * orderList[i].cnt;
+                }
+                $('#orderList').html(totalHtml);
+                $('#total').html(total);
 
 
             });
 
+
+
+            $(document).on("click", "#addplz", function (event) {
+                orderList[0].cnt++;
+            })
 
 
 
@@ -258,90 +290,12 @@
             }
 
 
-
-            $(document).on("click", "#add", function (event) {
-
-                var a = $(this).attr('class');
-                // alert(a);
-                for (var i = 0; i < orderList.length; i++) {
-                    if (orderList[i].idx == a) {
-                        orderList[i].cnt++;
-                        display();
-                    }
-                }
-
-            })
-
-            $(document).on("click", "#minus", function (event) {
-
-                var a = $(this).attr('class');
-                // alert(a);
-                for (var i = 0; i < orderList.length; i++) {
-                    if (orderList[i].idx == a) {
-                        if (orderList[i].cnt < 2) {
-                            orderList.splice(i, 1);
-                            display();
-                        } else {
-                            orderList[i].cnt--;
-                            display();
-                        }
-                    }
-                }
-
-            })
-
-
-
-
-
-
-
             $('#orderCancle').click(function () {
                 $(function () {
                     orderList = [];
                     $('#cart').empty();
-                    display();
                 })
             })
-
-
-
-            function display() {
-                var html = '';
-                html += '<div id ="table"><div class="row">';
-                html += '<h4>이미지</h4>';
-                html += '<h4>제품명</h4>';
-                html += '<h4>가격</h4>';
-                html += '<h4>수량</h4>';
-                html += '</div>';
-                // html += '<div class="list">';
-                for (var i = 0; i < orderList.length; i++) {
-                    html += '<div class="row">'
-                    html += '<h4><img src="' + Item[orderList[i].idx].img + '" id="orderImg"></h4>';
-                    html += '<h4>' + orderList[i].name + '</h4>';
-                    html += '<h4>' + orderList[i].price * orderList[i].cnt + '</h4>';
-                    html += '<h4 class="' + orderList[i].idx + '">' + orderList[i].cnt + '</h4>';
-                    html += '<button class="' + orderList[i].idx + '" id="add">+</button>';
-                    html += '<button class="' + orderList[i].idx + '" id="minus">-</button>';
-                    html += '</div>'
-                }
-                html += '</div>';
-
-
-
-                $('#cart').html(html);
-
-
-                var total = 0;
-                for (var i = 0; i < orderList.length; i++) {
-                    total += orderList[i].price * orderList[i].cnt;
-                }
-                var totalHtml = '<span id="total">' + '총액 :' + total + '원</span>';
-                $('#sumprice').html(totalHtml);
-            }
-
-
-
 
             // 전에 열렸던 메뉴를 확인하기 위한 변수
             var toggle = $('#hamburgerList');
@@ -448,7 +402,6 @@
 
 
 
-
             $('#goTop').mouseover(function () {
                 $(this).css('cursor', 'pointer')
             })
@@ -456,57 +409,18 @@
                 $('html').scrollTop(0);
             });
 
-
-            $('#complete').click(function () {
-
-                var data = JSON.stringify(orderList);
-
-                window.open("javamuger_payment.html?val=" + data, "width=360, height=546, left=100, top=50");
-
-            })
-
         });
-        
     </script>
+
+    <script>
+        function pay_popup() {
+            window.open("file:///C:/Users/a4-01/Documents/GitHub/AIA03/WEP/project/javamuger_payment.html", "a", "width=360, height=546, left=100, top=50");
+        }
+
+    </script>
+
+
     <style>
-        #table {
-            width: 380px;
-            display: table;
-        }
-
-        .row {
-            display: table-row;
-            margin-right: 80px;
-        }
-
-        h4 {
-            margin-right: 40px;
-            display: table-cell;
-            /* border:solid 1px gray; padding: 3px; */
-        }
-
-        #orderCancle {
-            display: inline;
-            position: relative;
-            left: 150px;
-        }
-
-        #orderComple {
-            display: inline;
-            position: relative;
-            left: 200px;
-        }
-
-        #sumprice {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        #total {
-            font-family: 'Nanum Gothic', sans-serif;
-            font-size: 20px;
-        }
-
         img.list {
             width: 300px;
             height: 150px;
@@ -579,7 +493,6 @@
 
         p {
             text-align: center;
-            font-family: 'Nanum Gothic', sans-serif;
         }
 
         #logo {
@@ -635,8 +548,8 @@
         }
 
         #orderImg {
-            width: 80px;
-            height: 60px;
+            width: 100px;
+            height: 80px;
         }
 
         #cart>div {
@@ -644,11 +557,12 @@
         }
 
         #add {
-            margin-left: 5px;
-            margin-right: 5px;
+            color: red;
         }
 
-        #minus {}
+        #minus {
+            color: red;
+        }
     </style>
 
 </head>
@@ -656,7 +570,7 @@
 <body>
     <header>
         <!-- <img id="logo"" src=" ../HTML_Team_Project/HTML Project images/LogoSample.png"> -->
-        <a href="javameger_main.html"><img id="logo" src="HTML Project images/LogoSample5.jpg"></a>
+        <img id="logo" src="HTML Project images/LogoSample5.jpg">
     </header>
     <contents>
         <nav class="naviBar">
@@ -688,14 +602,11 @@
     <div>
         <h3>주문 리스트</h3>
     </div>
-    <!-- <form> -->
     <div id="cart">
 
     </div>
-    <div id="sumprice"></div>
     <div id="orderCancle"><input type="reset" value="모두 취소"></div>
-    <div id="orderComple"><input id="complete" type="submit" value="선택 완료"></div>
-    <!-- </form> -->
+    <div id="orderComple"><input type="submit" value="선택 완료" onclick="pay_popup()"></div>
 </aside>
 <footer id="footer">
 

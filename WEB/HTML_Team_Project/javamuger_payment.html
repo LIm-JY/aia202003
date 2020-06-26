@@ -177,30 +177,6 @@
             float: right;
             width: 60px;
         }
-
-        #table {
-            width: 250px;
-            display: table;
-        }
-
-        .row {
-            display: table-row;
-            margin-right: 80px;
-        }
-
-        h4 {
-            margin-right: 40px;
-            display: table-cell;
-            /* border:solid 1px gray; padding: 3px; */
-        }
-
-
-        #total {
-            position: relative;
-            left: 80px;
-            font-size: 18px;
-        }
-
     </style>
 
     <script>
@@ -239,7 +215,6 @@
             html += '<h4>가격</h4>';
             html += '<h4>수량</h4>';
             html += '</div>';
-            html += '<br>'
             // html += '<div class="list">';
             for (var i = 0; i < orderList.length; i++) {
                 html += '<div class="row">'
