@@ -14,6 +14,7 @@
 	session의 속성으로 저정한 데이터<br>
 	username : <%=userName %><br>
 	<a href="../index.jsp">다른 페이지</a>
+	<a href="logout.jsp">로그아웃</a>
 	
 </h1>
 

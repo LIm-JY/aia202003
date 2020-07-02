@@ -10,19 +10,40 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <!--서블릿등록-->
-	<servlet>
-		<!--서블릿 식별할 수 있는 이름-->
-		<servlet-name>testServlet</servlet-name>
-		<servlet-class>test.NowServlet</servlet-class>
-	</servlet>
-	
-	<!--경로 맵핑-->
-	<servlet-mapping>
-		<!--요청에 실행할 서블릿 이름 등록-->
-		<servlet-name>testServlet</servlet-name>
-		<!--http://localhost:8080/web/hello-->
-		<url-pattern>/hello</url-pattern>
-	
-	</servlet-mapping>
+   <!-- 서블릿 등록  -->
+  <servlet>
+  	<!-- 서블릿 식별할수 있는 이름 -->
+  	<servlet-name>testServlet</servlet-name>
+  	<!-- 서블릿의 클래스 이름 : FullName -->
+  	<servlet-class>test.NowServlet</servlet-class>
+  </servlet>
+  
+  <!-- 경로 멥핑 -->
+  <servlet-mapping>
+  	<!-- 요청에 샐행 할 서블릿 이름 등록 -->
+  	<servlet-name>testServlet</servlet-name>
+  	<!-- http://localhost:8080/web/hello -->
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <!-- 상태 코드의 에러 페이지 설정 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error/error_404.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/error/error_500.jsp</location>
+  </error-page>
+  
+  
+  <!-- 에러 타입별 에러페이지 설정 -->
+  <error-page>
+  	<exception-type>java.lang.NullPointerException</exception-type>
+  	<location>/error/error_null.jsp</location>
+  </error-page>
+  
 </web-app>
