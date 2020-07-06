@@ -15,8 +15,11 @@
 	// 로그인 처리
 	boolean loginChk = false;
 	if(uid.equals(pw)){
-		LoginInfo loginInfo = new LoginInfo(uid, pw, "test@gmail.com", "default.jpg");
+		LoginInfo loginInfo = 
+				new LoginInfo(uid, pw, "test@gmail.com", "default.jpg");
+		
 		session.setAttribute("loginInfo", loginInfo);
+		
 		loginChk = true;
 	}
 	
@@ -36,7 +39,8 @@
 			response.addCookie(CookieBox.createCookie(cookieName, uid, cookiepath, 0));
 		}
 		
-		response.sendRedirect(rediectUri);
+		// 로그인 이 필요했던 이전 페이지
+		response.sendRedirect(rediectUri) ;
 			
 	} else {
 		%>
@@ -49,28 +53,23 @@
 	
 	
 %>
-	
+<%-- 	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>로그인 처리</title>
-
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/default.css">
-
 <style>
 </style>
 </head>
 <body>
-
 	<%@ include file="/include/header.jsp"%>
-
 	<div>
 		<h1>로그인</h1>
 		
 		<hr>
-
 		<table>
 			<tr>
 				<td>ID</td>
@@ -97,16 +96,8 @@
 				<td><%= rediectUri %></td>
 			</tr>
 		</table>
-
-
-
 	</div>
-
 	<%@ include file="/include/footer.jsp"%>
 </body>
 </html>
-
-
-
-
-
+ --%>
