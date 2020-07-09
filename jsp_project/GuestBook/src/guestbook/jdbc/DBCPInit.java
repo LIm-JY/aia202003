@@ -56,7 +56,7 @@ public class DBCPInit extends HttpServlet {
 			poolableConnFactory.setValidationQuery("select 1");
 			//커넥션 풀의 설정 정보를 생성한다.
 			GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
-			//유휴 커넥션 검사 주기
+			//유휴 커넥션 검사 주기0000000000000000000000000
 			poolConfig.setTimeBetweenEvictionRunsMillis(1000L * 60L * 5L);
 			//풀에 보관중인 커넥션이 유효한지 검사할지 유무 설정
 			poolConfig.setTestWhileIdle(true);
