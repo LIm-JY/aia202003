@@ -18,7 +18,8 @@
 <form action="memberReg.do" method="post">
 	<table>
 		<div>
-			<h1 class="subtitle">회원 가입</h1>
+			<h1 class="subtitle">회원 가입</h1><br>
+			<h2><a href="/opmvc/index.do">홈으로</a></h2>
 			<hr>
 				<h3>
 		
