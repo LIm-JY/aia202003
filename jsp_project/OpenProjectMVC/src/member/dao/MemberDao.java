@@ -23,7 +23,7 @@ public class MemberDao {
 		int resultCnt = 0;
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO member (uid, upw, uname, uphoto ) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO project.member (uid, upw, uname, uphoto ) VALUES (?,?,?,?)";
 
 		try {
 
@@ -52,7 +52,7 @@ public class MemberDao {
 		ResultSet rs;	
 		
 		try {
-			String sql = "select count(*) from member where uid=?";
+			String sql = "select count(*) from project.member where uid=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			
@@ -79,7 +79,7 @@ public class MemberDao {
 		try {
 			stmt = conn.createStatement();
 			
-			rs = stmt.executeQuery("select count(*) from member");
+			rs = stmt.executeQuery("select count(*) from project.member");
 			
 			if(rs.next()) {
 				resultCnt = rs.getInt(1);
@@ -107,7 +107,7 @@ public class MemberDao {
 		
 		List<Member> memberList = new ArrayList<Member>();
 		
-		String sql = "select * from member order by uname limit ?, ?";
+		String sql = "select * from project.member order by uname limit ?, ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -140,7 +140,7 @@ public class MemberDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "delete from member where idx=?";
+		String sql = "delete from project.member where idx=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -167,7 +167,7 @@ public class MemberDao {
 		ResultSet rs;	
 		
 		try {
-			String sql = "select * from member where idx=?";
+			String sql = "select  * from project.member where idx=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			
@@ -198,7 +198,7 @@ public class MemberDao {
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = "UPDATE member SET uid = ?,upw = ?,uname = ?,uphoto = ?,regdate = ? where idx=?";
+		String sql = "UPDATE project.member SET upw = ?,uname = ?,uphoto = ? where idx=?";
 		
 		
 		try {
