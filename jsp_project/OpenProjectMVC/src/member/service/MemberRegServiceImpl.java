@@ -30,7 +30,7 @@ MemberDao dao;
 			HttpServletResponse response) {
 		
 		// 파일 업로드 - 사진
-		// 사용자 데이터를 받기 - uid, upw, uname, uphoto
+		// 사용자 데이터를 받기 - uid, upw, uname, addr, uphoto
 
 		int resultCnt = 0;
 		
@@ -38,6 +38,9 @@ MemberDao dao;
 		String uid = null;
 		String upw = null;
 		String uname = null;
+		String addr = null;
+		String addrs = null;
+		String addrd = null;
 		String uphoto = null;
 		
 		Connection conn = null;
@@ -73,6 +76,12 @@ MemberDao dao;
 							upw = paramValue;
 						} else if(paramName.equals("uname")) {
 							uname = paramValue;
+						} else if(paramName.equals("addr")) {
+							addr = paramValue;
+						} else if(paramName.equals("addrs")) {
+							addrs = paramValue;
+						}else if(paramName.equals("addrd")) {
+							addrd = paramValue;
 						}
 						
 					} else { // type=file
@@ -105,6 +114,7 @@ MemberDao dao;
 				member.setUid(uid);
 				member.setUpw(upw);
 				member.setUname(uname);
+				member.setAddr(addr+addrs+addrd);
 				member.setUphoto(uphoto);
 				
 				conn = ConnectionProvider.getConnection();

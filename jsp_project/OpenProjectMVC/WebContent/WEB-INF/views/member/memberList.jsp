@@ -35,6 +35,7 @@
 				<th>아이디</th>
 				<th>이름</th>
 				<th>비밀번호</th>
+				<th>주소</th>
 				<th>사진</th>
 				<th>관리</th>
 			</tr>
@@ -46,6 +47,7 @@
 				<td>${member.uid}</td>
 				<td>${member.uname}</td>
 				<td>${member.upw}</td>
+				<td>${member.addr}</td>
 				<td><img alt="프사 " src="<c:url value="${member.uphoto}"/>">  </td>
 				<td>
 				<a href="memberEditForm.do?idx=${member.idx}">수정</a> 

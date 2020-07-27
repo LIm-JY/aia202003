@@ -1,30 +1,15 @@
-<%@page import="util.CookieBox"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	CookieBox cookieBox = new CookieBox(request);
-	String cookieUid = cookieBox.getValue("uid");
-	
-	String uidValue = "";
-	String checked = "";
-	
-	if(cookieUid!=null){
-		uidValue = cookieUid;
-		checked = "checked";
-	}
-	
-	
- 
-%>
-
-
+<%@ page trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 페이지</title>
+<title>INDEX</title>
 
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/default.css">
 
 <style>
 </style>
@@ -35,16 +20,18 @@
 
 	<div>
 		<h1 class="subtitle">로그인</h1>
-		
 		<hr>
+		<form action="login.do" method="post">
 		
-		<form action="login.jsp" method="post">
-		
-			<input type="text" name="redirecUri" value="<%= request.getHeader("referer")%>" style=" width : 50% ;" >			
+			<input type="text" name="redirecUri" 
+			
+			value="<%= request.getHeader("referer")%>" style=" width : 50% ;" >			
+			
+			
 			<table class="table">
 				<tr>
 					<td> ID </td>
-					<td> <input type="text" name="uid" value="<%= uidValue%>"> </td>
+					<td> <input type="text" name="uid" value="${cookie.uid.value}"> </td>
 				</tr>
 				<tr>
 					<td> PW </td>
@@ -52,7 +39,7 @@
 				</tr>				
 				<tr>
 					<td></td>
-					<td> <input type="checkbox" name="remember" value="r" <%= checked %> > 아이디 기억하기  </td>
+					<td> <input type="checkbox" name="remember" value="r" ${cookie.uid != null ? 'checked' : '' } > 아이디 기억하기  </td>
 				</tr>
 				<tr>
 					<td colspan="2"> <input type="submit" value="로그인"> </td>
@@ -60,10 +47,19 @@
 			</table>
 		
 		</form>
-		
-		
 	</div>
 
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>
+<script>
+	
+	$(document).ready(function(){
+		
+		
+		
+		
+	});
+	
+	
+</script>

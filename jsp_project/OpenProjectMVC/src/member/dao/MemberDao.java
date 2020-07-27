@@ -70,6 +70,7 @@ public class MemberDao {
 		
 		return resultCnt;
 	}
+
 	public int selectTotalCount(Connection conn) throws SQLException {
 		int resultCnt = 0;
 		
@@ -93,12 +94,6 @@ public class MemberDao {
 		
 		return resultCnt;
 	}
-	
-	
-	
-	
-	
-	
 
 	public List<Member> selectList(Connection conn, int startRow, int count) throws SQLException {
 		
@@ -135,7 +130,7 @@ public class MemberDao {
 		
 		return memberList;
 	}
-	
+
 	public int memberDelete(Connection conn, int idx) throws SQLException {
 		
 		int result = 0;
@@ -147,18 +142,16 @@ public class MemberDao {
 			pstmt.setInt(1, idx);
 			
 			result = pstmt.executeUpdate();
+			
 		} finally {
 			if(pstmt != null) {
 				pstmt.close();
 			}
-			
 		}
+		
 		return result;
-		
-		
 	}
-	
-	
+
 	public Member selectByIdx(Connection conn, int idx) throws SQLException {
 
 		Member member = null;
@@ -167,7 +160,7 @@ public class MemberDao {
 		ResultSet rs;	
 		
 		try {
-			String sql = "select  * from project.member where idx=?";
+			String sql = "select * from project.member where idx=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);
 			
@@ -190,17 +183,16 @@ public class MemberDao {
 		
 		return member;
 	}
-	
-	// ¼öÁ¤ dao
+
 	public int editMember(Connection conn, Member member) throws SQLException {
 		
-		int result =0;
+		int result = 0;
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = "UPDATE project.member SET upw = ?,uname = ?,uphoto = ? where idx=?";
-		
-		
+		String sql = "update project.member set "
+				   + " upw=?, uname=?, uphoto=? "
+				   + " where idx=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member.getUpw());
@@ -210,21 +202,92 @@ public class MemberDao {
 			
 			result = pstmt.executeUpdate();
 			
-			
 		} finally {
-			
 			if(pstmt != null) {
 				pstmt.close();
 			}
-			
-			
 		}
 		
-	return result;
-	
-}
-	
-	
-	
+		return result;
+	}
 
+	public Member selectByIdpw(Connection conn, String uid, String pw) throws SQLException {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs;	
+		Member member = null;
+		
+		try {
+			String sql = "select * from project.member where uid=? and upw=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, uid);
+			pstmt.setString(2, pw);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new Member();
+				member.setIdx(rs.getInt("idx"));
+				member.setUid(rs.getString("uid"));
+				member.setUpw(rs.getString("upw"));
+				member.setUname(rs.getString("uname"));
+				member.setUphoto(rs.getString("uphoto"));
+			}
+			
+		} finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return member;
+	}
+
+	public List<Member> selectTotalList(Connection conn) throws SQLException {
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		List<Member> memberList = new ArrayList<Member>();
+		
+		String sql = "select * from project.member order by uname";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Member member = new Member();
+				member.setIdx(rs.getInt("idx"));
+				member.setUid(rs.getString("uid"));
+				member.setUpw(rs.getString("upw"));
+				member.setUname(rs.getString("uname"));
+				member.setUphoto(rs.getString("uphoto"));
+				
+				memberList.add(member);
+			}
+			
+		} finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return memberList;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

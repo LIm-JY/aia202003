@@ -9,14 +9,16 @@ public class Member {
 	private String upw;
 	private String uname;
 	private String uphoto;
+	private String addr;
 	private Date regdate;
 	
-	public Member(int idx, String uid, String upw, String uname, String uphoto, Date regdate) {
+	public Member(int idx, String uid, String upw, String uname, String uphoto, String addr, Date regdate) {
 		this.idx = idx;
 		this.uid = uid;
 		this.upw = upw;
 		this.uname = uname;
 		this.uphoto = uphoto;
+		this.addr = addr;
 		this.regdate = regdate;
 	}
 	public Member() {
@@ -51,6 +53,14 @@ public class Member {
 	public void setUphoto(String uphoto) {
 		this.uphoto = uphoto;
 	}
+	
+	
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
 	public Date getRegdate() {
 		return regdate;
 	}
@@ -66,10 +76,10 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [idx=" + idx + ", uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", uphoto=" + uphoto
-				+ ", regdate=" + regdate + "]";
+				+ ", addr=" + addr + ", regdate=" + regdate + "]";
 	}
 	
-	
+		
 	
 	
 	
