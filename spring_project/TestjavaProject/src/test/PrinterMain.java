@@ -9,10 +9,11 @@ public class PrinterMain {
 		GenericXmlApplicationContext ctx = 
 				new GenericXmlApplicationContext("classpath:applicationContext.xml");
 		
-		//컨테이너 객체를 제공
+		// 컨테이너가 객체를 제공
 		Printer printer = ctx.getBean("printer", Printer.class);
 		
 		printer.print();
+
 	}
 
 }
