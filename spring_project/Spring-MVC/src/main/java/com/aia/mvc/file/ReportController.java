@@ -24,6 +24,7 @@ public class ReportController {
 		String fileName = report.getOriginalFilename();
 		long fileSize = report.getSize();
 		
+		
 		model.addAttribute("report", fileName+"("+fileSize+")");
 		
 		return "report/upload";
