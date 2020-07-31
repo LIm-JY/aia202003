@@ -8,15 +8,11 @@ import di.domain.Member;
 import di.exception.IdPasswordNotMatchingException;
 import di.exception.MemberNotFoundException;
 
-@Component("memberPwSvc1")
+@Component("memberPwSvc")
 public class ChangePasswordService3 {
 	
 	@Autowired
 	private Dao dao;
-
-
-
-
 
 	public void changePassword(String email, String oldPwd, String newPwd) throws IdPasswordNotMatchingException, MemberNotFoundException {
 		Member member = dao.selectByEmail(email);

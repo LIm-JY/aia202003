@@ -11,17 +11,25 @@ import di.service.MemberRegisterService;
 public class MainForSpringJavaConfig {
 
 	public static void main(String[] args) {
-
+		
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(JavaConfig.class);
 		
 		MemberRegisterService regSvc = ctx.getBean("regSvc",MemberRegisterService.class);
 		System.out.println(regSvc);
 		MemberDao dao = ctx.getBean("dao", MemberDao.class);
 		System.out.println(dao);
-		ChangePasswordService changeSvc = ctx.getBean("changePwSvc", ChangePasswordService.class);
+		ChangePasswordService changeSvc = ctx.getBean("changePwSvc", ChangePasswordService.class); 
 		System.out.println(changeSvc);
-		
-		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+

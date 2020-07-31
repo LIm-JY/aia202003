@@ -17,13 +17,14 @@ public class MainForSpring5 {
 
 	public static void main(String[] args) {
 		
-		
 		ctx = new GenericXmlApplicationContext("classpath:appCtx8.xml");
 
 		Scanner reader = new Scanner(System.in);
 		while (true) {
 			System.out.println("명렁어를 입력하세요:");
+			
 			String command = reader.nextLine();
+			
 			if (command.equalsIgnoreCase("exit")) {
 				System.out.println("종료합니다.");
 				break;
@@ -49,11 +50,14 @@ public class MainForSpring5 {
 		// Spring Container 객체 저장 타입은 Object
 		MemberRegisterService3 regSvc = 
 				ctx.getBean("memberRegisterService3", MemberRegisterService3.class);
+		
+		
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail(arg[1]);
 		req.setName(arg[2]);
 		req.setPassword(arg[3]);
 		req.setConfirmPassword(arg[4]);
+		
 		if (!req.isPasswordEqualToConfirmPassword()) {
 			System.out.println("암호와 확인이 일치하지 않습니다.\n");
 			return;
@@ -71,8 +75,10 @@ public class MainForSpring5 {
 			printHelp();
 			return;
 		}
+		
 		ChangePasswordService3 changePwdSvc = 
-				ctx.getBean("memberPwSvc", ChangePasswordService3.class);
+				ctx.getBean("changePasswordService3", ChangePasswordService3.class);
+		
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
 			System.out.println("암호를 변경했습니다.\n");

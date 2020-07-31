@@ -5,13 +5,12 @@ import org.springframework.context.annotation.Configuration;
 
 import di.dao.MemberDao;
 import di.service.ChangePasswordService;
-import di.service.ChangePasswordService2;
 import di.service.MemberRegisterService;
 
 @Configuration
 public class JavaConfig {
-
-	@Bean(name ="dao")
+	
+	@Bean(name = "dao")
 	public MemberDao memberDao() {
 		return new MemberDao();
 	}
@@ -22,10 +21,23 @@ public class JavaConfig {
 	}
 	
 	@Bean
-	public ChangePasswordService changePwSvc() {	
+	public ChangePasswordService changePwSvc() {
 		return new ChangePasswordService(memberDao());
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
 }
+
+
+
+

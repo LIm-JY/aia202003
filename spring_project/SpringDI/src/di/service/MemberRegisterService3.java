@@ -17,11 +17,10 @@ public class MemberRegisterService3 {
 	
 	@Resource(name = "dao")
 	private Dao dao;
-		
-	
-	
-	
+
+
 	public void regist(RegisterRequest req) throws AlreadyExistingMemberException {
+		
 		Member member = dao.selectByEmail(req.getEmail());
 		if (member != null) {
 			throw new AlreadyExistingMemberException("dup email " + req.getEmail());
