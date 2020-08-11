@@ -14,16 +14,12 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-	<resources mapping="/css/**" location="/css/" />
-	<resources mapping="/js/**" location="/js/" />
-	<resources mapping="/upload/**" location="/upload/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-
 	<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -33,25 +29,13 @@
 	</beans:bean>
 	
 	<!--  Interceptor  설정 -->
-	<interceptors>
+	<!-- <interceptors>
 		<interceptor>
 			<mapping path="/member/mypage/**"/>
-			<beans:bean class="com.aia.op.interceptor.AuthCheckInterceptor"/>
+			<beans:bean class="com.aia.it.interceptor.AuthCheckInterceptor"/>
 		</interceptor>
-	</interceptors>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	<context:component-scan base-package="com.aia.op" />
+	</interceptors> -->
+	<context:component-scan base-package="com.aia.it" />
 	
 	
 	

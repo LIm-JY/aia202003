@@ -1,4 +1,4 @@
-package com.aia.op.board.model;
+package com.aia.it.board.model;
 
 import java.sql.Date;
 
@@ -9,7 +9,7 @@ public class Board {
 	private String bmsg; //게시글 내용
 	private String bphoto1; //게시글 사진
 	private String bphoto2; //게시글 사진
-	private Date bregDate; //게시글 작성일
+	private Date bregdate; //게시글 작성일
 	private int pidx; // 플래너 식별번호
 	private String uname;//회원 닉네임
 	
@@ -44,11 +44,11 @@ public class Board {
 	public void setBphoto2(String bphoto2) {
 		this.bphoto2 = bphoto2;
 	}
-	public Date getBregDate() {
-		return bregDate;
+	public Date getBregdate() {
+		return bregdate;
 	}
-	public void setBregDate(Date bregDate) {
-		this.bregDate = bregDate;
+	public void setBregdate(Date bregdate) {
+		this.bregdate = bregdate;
 	}
 	public int getPidx() {
 		return pidx;
@@ -62,14 +62,14 @@ public class Board {
 	public void setUname(String uname) {
 		this.uname = uname;
 	}
-	public Board(int bidx, String btitle, String bmsg, String bphoto1, String bphoto2, Date bregDate, int pidx,
+	public Board(int bidx, String btitle, String bmsg, String bphoto1, String bphoto2, Date bregdate, int pidx,
 			String uname) {
 		this.bidx = bidx;
 		this.btitle = btitle;
 		this.bmsg = bmsg;
 		this.bphoto1 = bphoto1;
 		this.bphoto2 = bphoto2;
-		this.bregDate = bregDate;
+		this.bregdate = bregdate;
 		this.pidx = pidx;
 		this.uname = uname;
 	}
@@ -82,7 +82,7 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [bidx=" + bidx + ", btitle=" + btitle + ", bmsg=" + bmsg + ", bphoto1=" + bphoto1 + ", bphoto2="
-				+ bphoto2 + ", bregDate=" + bregDate + ", pidx=" + pidx + ", uname=" + uname + "]";
+				+ bphoto2 + ", bregdate=" + bregdate + ", pidx=" + pidx + ", uname=" + uname + "]";
 	}
 	
 	

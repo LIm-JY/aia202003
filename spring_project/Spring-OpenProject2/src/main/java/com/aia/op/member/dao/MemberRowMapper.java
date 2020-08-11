@@ -19,6 +19,8 @@ public class MemberRowMapper implements RowMapper<Member> {
 		member.setUphoto(rs.getString("uphoto"));
 		return member;
 	}
+	
+	
 
 }
 
