@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.aia.it.board.dao.BorardDaoInterface">
+
+   <resultMap id="resultBoard" type="com.aia.it.board.model.Board">
+   
+   <id property="bidx" column="bidx"/>
+   <result property="btitle" column="btitle"/>      
+      <result property="bmsg" column="bmsg"/>
+      <result property="bphoto1" column="bphoto1"/>
+      <result property="bphoto2" column="bphoto2"/>
+      <result property="pidx" column="pidx"/>
+      <result property="uname" column="uname"/>
+   </resultMap>
+
+   <!-- 게시판 리스트 출력  -->
+   <select id="seletTotalList"
+         resultMap="resultBoard">
+      select * from project.board order by bidx desc
+   </select>
+   
+   <select
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+</mapper>

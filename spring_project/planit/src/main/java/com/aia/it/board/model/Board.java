@@ -75,6 +75,13 @@ public class Board {
 	}
 	
 	
+	public Board(int bidx, String btitle, String bmsg) 
+		{
+		this(0,btitle,bmsg,null,null,null,0,null);
+	}
+	
+	
+	
 	public Board() {
 	}
 	
