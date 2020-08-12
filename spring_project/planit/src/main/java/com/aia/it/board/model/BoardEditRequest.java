@@ -9,7 +9,8 @@ public class BoardEditRequest {
 	private String bmsg; //게시글 내용
 	private MultipartFile bphoto1; //게시글 사진
 	private MultipartFile bphoto2; //게시글 사진
-	private String oldFile;
+	private String oldFile1;
+	private String oldFile2;
 	
 	
 	
@@ -37,23 +38,36 @@ public class BoardEditRequest {
 	public void setBphoto2(MultipartFile bphoto2) {
 		this.bphoto2 = bphoto2;
 	}
-	public String getOldFile() {
-		return oldFile;
-	}
-	public void setOldFile(String oldFile) {
-		this.oldFile = oldFile;
-	}
 	
+	
+	public int getBidx() {
+		return bidx;
+	}
+	public void setBidx(int bidx) {
+		this.bidx = bidx;
+	}
+	public String getOldFile1() {
+		return oldFile1;
+	}
+	public void setOldFile1(String oldFile1) {
+		this.oldFile1 = oldFile1;
+	}
+	public String getOldFile2() {
+		return oldFile2;
+	}
+	public void setOldFile2(String oldFile2) {
+		this.oldFile2 = oldFile2;
+	}
 	public Board toBoard() {
-		return new Board(bidx,btitle,bmsg,oldFile.length()>0?oldFile:null, null ,null , 0, null);
+		return new Board(bidx,btitle,bmsg,oldFile1.length()>0?oldFile1:null, oldFile2.length()>0?oldFile2:null ,null , 0, null);
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "BoardEditRequest [btitle=" + btitle + ", bmsg=" + bmsg + ", bphoto1=" + bphoto1 + ", bphoto2=" + bphoto2
-				+ ", oldFile=" + oldFile + "]";
+		return "BoardEditRequest [bidx=" + bidx + ", btitle=" + btitle + ", bmsg=" + bmsg + ", bphoto1=" + bphoto1
+				+ ", bphoto2=" + bphoto2 + ", oldFile1=" + oldFile1 + ", oldFile2=" + oldFile2 + "]";
 	}
+	
+	
 	
 	
 	

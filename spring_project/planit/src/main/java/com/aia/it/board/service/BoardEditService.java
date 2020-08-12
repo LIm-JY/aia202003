@@ -62,12 +62,12 @@ public class BoardEditService {
 
 				// 이전 페이지를 지운다.
 				// 이전 파일의 File 객체
-				File oldFile = new File(realPath, editRequest.getOldFile());
+				File oldFile1 = new File(realPath, editRequest.getOldFile1());
 
 				// 파일이 존재하면
-				if (oldFile.exists()) {
+				if (oldFile1.exists()) {
 					// 파일을 삭제
-					oldFile.delete();
+					oldFile1.delete();
 				}
 
 			}
@@ -91,12 +91,12 @@ public class BoardEditService {
 
 				// 이전 페이지를 지운다.
 				// 이전 파일의 File 객체
-				File oldFile = new File(realPath, editRequest.getOldFile());
+				File oldFile2 = new File(realPath, editRequest.getOldFile2());
 
 				// 파일이 존재하면
-				if (oldFile.exists()) {
+				if (oldFile2.exists()) {
 					// 파일을 삭제
-					oldFile.delete();
+					oldFile2.delete();
 				}
 
 			}
