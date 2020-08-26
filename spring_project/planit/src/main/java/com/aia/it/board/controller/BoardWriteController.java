@@ -12,16 +12,16 @@ import com.aia.it.board.model.BoardRequest;
 import com.aia.it.board.service.BoardWriteService;
 
 @Controller
-@RequestMapping("/board/boardForm")
+@RequestMapping("/board/boardWrite")
 public class BoardWriteController {
-
+	
 	@Autowired
 	BoardWriteService writeService;
 	
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getBoardForm() {
-		return "board/boardForm";
+		return "board/boardWriteForm";
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public String getBoard(
@@ -33,9 +33,8 @@ public class BoardWriteController {
 		
 		model.addAttribute("result" , writeService.boardWrite(bRequest, request));
 		
-		return "board/board";
+		return "board/boardWrite";
 		
 	}
-	
-	
+
 }

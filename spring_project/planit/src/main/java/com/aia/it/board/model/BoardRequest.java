@@ -8,7 +8,7 @@ public class BoardRequest {
 	private String bmsg; //게시글 내용
 	private MultipartFile bphoto1; //게시글 사진
 	private MultipartFile bphoto2; //게시글 사진
-	private String uname;//회원 닉네임
+	private int uidx;//회원 닉네임
 	public String getBtitle() {
 		return btitle;
 	}
@@ -33,16 +33,16 @@ public class BoardRequest {
 	public void setBphoto2(MultipartFile bphoto2) {
 		this.bphoto2 = bphoto2;
 	}
-	public String getUname() {
-		return uname;
+	public int getUidx() {
+		return uidx;
 	}
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setUidx(int uidx) {
+		this.uidx = uidx;
 	}
 	@Override
 	public String toString() {
 		return "BoardRequest [btitle=" + btitle + ", bmsg=" + bmsg + ", bphoto1=" + bphoto1 + ", bphoto2=" + bphoto2
-				+ ", uname=" + uname + "]";
+				+ ", uidx=" + uidx + "]";
 	}
 	
 	
@@ -50,20 +50,8 @@ public class BoardRequest {
 	
 	public Board toBoard() {
 		
-		return new Board(0, btitle,bmsg);
+		return new Board(btitle,bmsg,uidx);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 
 }
-
-
-

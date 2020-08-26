@@ -1,5 +1,7 @@
 package com.aia.it.board.dao;
 
+import java.sql.SQLException;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +18,9 @@ public class BoardDao {
 	
 	public int insertBoard(Board board) {
 		return sessionTemplate.update(mapperPath+".insertBoard"+board);
+	}
+	public int editBoard(Board board) throws SQLException {
+		return sessionTemplate.update(mapperPath+".editBoard", board);
 	}
 	
 

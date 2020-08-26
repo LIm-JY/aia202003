@@ -11,7 +11,7 @@ public class Board {
 	private String bphoto2; //게시글 사진
 	private Date bregdate; //게시글 작성일
 	private int pidx; // 플래너 식별번호
-	private String uname;//회원 닉네임
+	private int uidx;//회원 닉네임
 	
 	
 	public int getBidx() {
@@ -56,14 +56,17 @@ public class Board {
 	public void setPidx(int pidx) {
 		this.pidx = pidx;
 	}
-	public String getUname() {
-		return uname;
+	
+	public int getUidx() {
+		return uidx;
 	}
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setUidx(int uidx) {
+		this.uidx = uidx;
 	}
+	
+	
 	public Board(int bidx, String btitle, String bmsg, String bphoto1, String bphoto2, Date bregdate, int pidx,
-			String uname) {
+			int uidx) {
 		this.bidx = bidx;
 		this.btitle = btitle;
 		this.bmsg = bmsg;
@@ -71,13 +74,13 @@ public class Board {
 		this.bphoto2 = bphoto2;
 		this.bregdate = bregdate;
 		this.pidx = pidx;
-		this.uname = uname;
+		this.uidx = uidx;
 	}
 	
 	
-	public Board(int bidx, String btitle, String bmsg) 
+	public Board(String btitle, String bmsg, int uidx) 
 		{
-		this(0,btitle,bmsg,null,null,null,0,null);
+		this(0,btitle,bmsg,null,null,null,0,uidx);
 	}
 	
 	
@@ -89,11 +92,6 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [bidx=" + bidx + ", btitle=" + btitle + ", bmsg=" + bmsg + ", bphoto1=" + bphoto1 + ", bphoto2="
-				+ bphoto2 + ", bregdate=" + bregdate + ", pidx=" + pidx + ", uname=" + uname + "]";
+				+ bphoto2 + ", bregdate=" + bregdate + ", pidx=" + pidx + ", uidx=" + uidx + "]";
 	}
-	
-	
-	
-	
-
 }

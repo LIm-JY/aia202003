@@ -20,21 +20,15 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
-	<beans:bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	
+	<!-- 파일업로드 처리를 위한 multipartResolver been 등록-->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="defaultEncoding">
 			<beans:value>utf-8</beans:value>
 		</beans:property>
 	</beans:bean>
 	
-	<!--  Interceptor  설정 -->
-	<!-- <interceptors>
-		<interceptor>
-			<mapping path="/member/mypage/**"/>
-			<beans:bean class="com.aia.it.interceptor.AuthCheckInterceptor"/>
-		</interceptor>
-	</interceptors> -->
+	
 	<context:component-scan base-package="com.aia.it" />
 	
 	
